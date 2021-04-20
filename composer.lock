@@ -1,0 +1,68 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "d3bdea5dcbe31f11837876a30846fa5e",
+    "packages": [
+        {
+            "name": "espresso-dev/zoom-php",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/espresso-dev/zoom-php.git",
+                "reference": "2a903425d312ad49794646c6678b7818d3106c2b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/espresso-dev/zoom-php/zipball/2a903425d312ad49794646c6678b7818d3106c2b",
+                "reference": "2a903425d312ad49794646c6678b7818d3106c2b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EspressoDev\\Zoom\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Herman Schutte",
+                    "email": "herman@espresso.dev"
+                }
+            ],
+            "description": "A simple PHP class for accessing the Zoom API",
+            "homepage": "https://github.com/espresso-dev/zoom-php",
+            "keywords": [
+                "api",
+                "zoom"
+            ],
+            "support": {
+                "issues": "https://github.com/espresso-dev/zoom-php/issues",
+                "source": "https://github.com/espresso-dev/zoom-php/tree/v1.0.1"
+            },
+            "time": "2020-12-07T06:01:29+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": "^7.1",
+        "ext-pdo": "^7.1"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}
