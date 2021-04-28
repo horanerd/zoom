@@ -1,17 +1,36 @@
+<html>
+    <head>
+        <title> zoom</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    
+                <p>Nome: Guilherme de sousa</p>
+                <p>User: Guilherme</p>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
+
+
 <?php
 require_once 'vendor/autoload.php';
  
 
 use GuzzleHttp\Client;
-use Source\Zoom;
- 
-define('ZOOM_API_KEY', 'hVIo_i2VQ1eAw5kOYKgYcw');
-define('ZOOM_SECRET_KEY', 'kRIYSdczASkqv9TiuqQagulDQrwn50b9szOL');
+use Source\Model\Zoom;
+
 
 $novo = new Zoom();
-echo $novo->Connect(ZOOM_API_KEY, ZOOM_SECRET_KEY);
+$novo->create(ZOOM_API_KEY, ZOOM_SECRET_KEY);
 
-echo "<br> === <br>";
+
+
 
 function getZoomAccessToken() {
     $key = ZOOM_SECRET_KEY;
@@ -22,8 +41,7 @@ function getZoomAccessToken() {
    return  JWT::encode($payload, $key);    
 }
 
-echo getZoomAccessToken();
-//
+
 function createZoomMeeting() {
     $client = new Client([
         // Base URI is used with relative requests
@@ -37,7 +55,7 @@ function createZoomMeeting() {
         'json' => [
             "topic" => "Teste 2",
             "type" => 2,
-            "start_time" => "2021-01-30T20:30:00",
+            "start_time" => "2021-04-30T20:30:00",
             "duration" => "30", // 30 mins
             "password" => "123456"
         ],
@@ -51,4 +69,3 @@ function createZoomMeeting() {
    
 }
  
-createZoomMeeting();
