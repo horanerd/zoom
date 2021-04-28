@@ -21,9 +21,13 @@
 
 
                 $novo = new Zoom();
-                $novo->create(ZOOM_API_KEY, ZOOM_SECRET_KEY);
+                //$novo->create(ZOOM_API_KEY, ZOOM_SECRET_KEY);
                 
                 ?>
+
+                <div class="input-group mb-3">
+                   <a href="reuniao" class="btn btn-primary" type="button"  > Reunião  </a>
+                </div>
 
                 </div>
             </div>
