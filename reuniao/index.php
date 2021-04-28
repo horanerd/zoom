@@ -62,7 +62,7 @@
             <div id="navbar" class="websdktest">
                 <form class="navbar-form navbar-right" id="meeting_form">
                     <div class="form-group">
-                        <input type="text" name="display_name" id="display_name" value="1.9.1#CDN" maxLength="100"
+                        <input type="text" name="display_name" id="display_name" value="<?= NAME ?>" maxLength="100"
                             placeholder="Name" class="form-control" required>
                     </div>
                     <div class="form-group">
@@ -93,51 +93,20 @@
                     </div>
                     <div class="form-group">
                         <select id="meeting_lang" class="sdk-select">
-                            <option value="en-US">English</option>
-                            <option value="de-DE">German Deutsch</option>
-                            <option value="es-ES">Spanish Español</option>
-                            <option value="fr-FR">French Français</option>
-                            <option value="jp-JP">Japanese 日本語</option>
                             <option value="pt-PT">Portuguese Portuguese</option>
-                            <option value="ru-RU">Russian Русский</option>
-                            <option value="zh-CN">Chinese 简体中文</option>
-                            <option value="zh-TW">Chinese 繁体中文</option>
-                            <option value="ko-KO">Korean 한국어</option>
-                            <option value="vi-VN">Vietnamese Tiếng Việt</option>
-                            <option value="it-IT">Italian italiano</option>
                         </select>
                     </div>
 
-                    <input type="hidden" value="" id="copy_link_value" />
+
                     <button type="submit" class="btn btn-primary" id="join_meeting">Join</button>
                     <button type="submit" class="btn btn-primary" id="clear_all">Clear</button>
-                    <button type="button" link="" onclick="window.copyJoinLink('#copy_join_link')"
-                        class="btn btn-primary" id="copy_join_link">Copy Direct join link</button>
-
+                   
 
                 </form>
             </div>
             <!--/.navbar-collapse -->
         </div>
     </nav>
-
-
-    <div id="show-test-tool">
-        <button type="submit" class="btn btn-primary" id="show-test-tool-btn"
-            title="show or hide top test tool">Show</button>
-    </div>
-    <script>
-        document.getElementById('show-test-tool-btn').addEventListener("click", function (e) {
-            var textContent = e.target.textContent;
-            if (textContent === 'Show') {
-                document.getElementById('nav-tool').style.display = 'block';
-                document.getElementById('show-test-tool-btn').textContent = 'Hide';
-            } else {
-                document.getElementById('nav-tool').style.display = 'none';
-                document.getElementById('show-test-tool-btn').textContent = 'Show';
-            }
-        })
-    </script>
 
     <script src="https://source.zoom.us/1.9.1/lib/vendor/react.min.js"></script>
     <script src="https://source.zoom.us/1.9.1/lib/vendor/react-dom.min.js"></script>
@@ -149,10 +118,6 @@
     <script src="js/vconsole.min.js"></script>
     <script src="js/index.js"></script>
 
-    <script>
-
-
-    </script>
 </body>
 
 </html>

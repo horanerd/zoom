@@ -6,9 +6,9 @@ use Source\Support\Message;
 use Source\Support\Seo;
 
 /**
- * FSPHP | Class Controller
+ * Horanerd | Class Connect [ Singleton Pattern ]
  *
- * @author Robson V. Leite <cursos@upinside.com.br>
+ * @author Guilherme de sousa <guilherme@horanerd.com.br>
  * @package Source\Core
  */
 class Controller

@@ -5,10 +5,10 @@ namespace Source\Core;
 use Source\Support\Message;
 
 /**
- * FSPHP | Class Model Layer Supertype Pattern
+ * Horanerd | Class Connect [ Singleton Pattern ]
  *
- * @author Robson V. Leite <cursos@upinside.com.br>
- * @package Source\Models
+ * @author Guilherme de sousa <guilherme@horanerd.com.br>
+ * @package Source\Core
  */
 abstract class Model
 {
