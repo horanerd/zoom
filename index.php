@@ -3,58 +3,26 @@
                             
 
                             use GuzzleHttp\Client;
-                            use \Firebase\JWT\JWT;
+                            
                             use Source\Model\Zoom;
 
                 
 
-                function getZoomAccessToken() {
-                $key = ZOOM_SECRET_KEY;
-                $payload = array(
-                    "iss" => ZOOM_API_KEY,
-                    'exp' => time() + 3600,
-                );
-                return JWT::encode($payload, $key);    
-                }   
-
-                            function createZoomMeeting() {
-                $client = new Client([
-                            // Base URI is used with relative requests
-                            'base_uri' => 'https://api.zoom.us',
-                        ]);
-
-                        $response = $client->request('POST', '/v2/users/me/meetings', [
-                            "headers" => [
-                                "Authorization" => "Bearer " . getZoomAccessToken()
-                            ],
-                            'json' => [
-                                "topic" => "Let's Learn WordPress",
-                                "type" => 2,
-                                "start_time" => "2021-01-30T20:30:00",
-                                "duration" => "30", // 30 mins
-                                "password" => "123456"
-                            ],
-                        ]);
-
-                        $data = json_decode($response->getBody());
-                        echo "Join URL: ". $data->join_url;
-                        echo "<br>";
-                        echo "Meeting Password: ". $data->password;
-                    }
-
-                    createZoomMeeting();
-                 
                 
-
-                //$novo = new Zoom();
-                 // echo $novo->create();
+                $novo = new Zoom(ZOOM_API_KEY, ZOOM_SECRET_KEY);
+                // $novo->create("Video aula 1", "2021-05-22T18:30:00");
 
                 //echo $novo->Signature(ZOOM_API_KEY, ZOOM_SECRET_KEY);
 
-               //$meet = $novo->meeting("Guilherme", "82429182978", "TDhxbjdPckY4TkVRQkZGRUpSUjcvQT09", "0");
+               $meet = $novo->meeting("Guilherme", "82429182978", "TDhxbjdPckY4TkVRQkZGRUpSUjcvQT09", "0");
                 
                 ?>
-                <!--
+                <html>
+                <head>
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" >
+                </head>
+                <body>
+                
                 <div class="input-group mb-3">
                    <a href="reuniao/meeting.html?<?= $meet ?>" class="btn btn-primary" type="button"  > Reunião  </a>
                 </div>
@@ -67,6 +35,6 @@
 </html>
 
 
-<---> 
+
 
  

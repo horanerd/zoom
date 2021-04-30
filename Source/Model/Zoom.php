@@ -2,7 +2,7 @@
 namespace Source\Model;
 
 use GuzzleHttp\Client;
-use JWT;
+use \Firebase\JWT\JWT;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -24,8 +24,9 @@ class Zoom {
     
     const API_TOKEN_EXCHANGE_URL = 'https://zoom.us/oauth/token';
     
-    public function __construct() {
-            
+    public function __construct($Api_key, $Secret) {
+            define("Api_Key", $Api_key);
+            define("Secret", $Secret);
     }
 
     function Signature ($api_key, $api_secret, $meeting_number, $role){
@@ -58,12 +59,12 @@ class Zoom {
 
     public function meeting($name, $meeting, $pwd, $role, $lang = "pt-PT"){
         
-        $signature = $this->Signature(ZOOM_API_KEY, ZOOM_SECRET_KEY, $meeting, $role );
+        $signature = $this->Signature(Api_Key, Secret, $meeting, $role );
 
-        return "name=".$name ."&mn=" . $meeting . "&email=&pwd=" . $pwd . "&role=" . $role . "&lang=" . $lang . "&signature=" . $signature . "&china=0&apiKey=hVIo_i2VQ1eAw5kOYKgYcw";
+        return "name=".$name ."&mn=" . $meeting . "&email=&pwd=" . $pwd . "&role=" . $role . "&lang=" . $lang . "&signature=" . $signature . "&china=0&apiKey=". Api_Key;
     }
     
-    public function create(){
+    public function create($name, $data){
         $client = new Client([
             // Base URI is used with relative requests
             'base_uri' => 'https://api.zoom.us',
@@ -74,9 +75,9 @@ class Zoom {
                 "Authorization" => "Bearer " . $this->getZoomAccessToken()
             ],
             'json' => [
-                "topic" => "Let's Learn WordPress",
+                "topic" => $name,
                 "type" => 2,
-                "start_time" => "2021-01-30T20:30:00",
+                "start_time" => $data,
                 "duration" => "30", // 30 mins
                 "password" => "123456"
             ],
@@ -90,10 +91,10 @@ class Zoom {
     }
 
     function getZoomAccessToken() {
-    $key = ZOOM_SECRET_KEY;
+    $key = Secret;
     $payload = array(
-        "iss" => ZOOM_API_KEY,
-        'exp' => time() + 3600,
+        "iss" => Api_Key,
+        'exp' => 1496091964000,
     );
     return JWT::encode($payload, $key);    
     }
