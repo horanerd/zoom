@@ -56,35 +56,7 @@ function websdkready() {
         document.getElementById("meeting_lang").value
       );
     });
-  // copy zoom invite link to mn, autofill mn and pwd.
-  document
-    .getElementById("meeting_number")
-    .addEventListener("input", function (e) {
-      var tmpMn = e.target.value.replace(/([^0-9])+/i, "");
-      if (tmpMn.match(/([0-9]{9,11})/)) {
-        tmpMn = tmpMn.match(/([0-9]{9,11})/)[1];
-      }
-      var tmpPwd = e.target.value.match(/pwd=([\d,\w]+)/);
-      if (tmpPwd) {
-        document.getElementById("meeting_pwd").value = tmpPwd[1];
-        testTool.setCookie("meeting_pwd", tmpPwd[1]);
-      }
-      document.getElementById("meeting_number").value = tmpMn;
-      testTool.setCookie(
-        "meeting_number",
-        document.getElementById("meeting_number").value
-      );
-    });
 
-  document.getElementById("clear_all").addEventListener("click", function (e) {
-    testTool.deleteAllCookies();
-    document.getElementById("display_name").value = "";
-    document.getElementById("meeting_number").value = "";
-    document.getElementById("meeting_pwd").value = "";
-    document.getElementById("meeting_lang").value = "en-US";
-    document.getElementById("meeting_role").value = 0;
-    window.location.href = "/index.html";
-  });
 
   // click join meeting button
   document
@@ -110,47 +82,10 @@ function websdkready() {
           console.log(res.result);
           meetingConfig.signature = res.result;
           meetingConfig.apiKey = API_KEY;
-          var joinUrl = "/Users/Guilherme/Downloads/sample-app-web-master/sample-app-web-master//cdn/meeting.html?" + testTool.serialize(meetingConfig);
+          var joinUrl = "/meeting.html?" + testTool.serialize(meetingConfig);
           console.log(joinUrl);
           window.open(joinUrl, "_blank");
         },
       });
     });
-
-  function copyToClipboard(elementId) {
-    var aux = document.createElement("input");
-    aux.setAttribute("value", document.getElementById(elementId).getAttribute('link'));
-    document.body.appendChild(aux);  
-    aux.select();
-    document.execCommand("copy");
-    document.body.removeChild(aux);
-  }
-    
-  // click copy jon link button
-  window.copyJoinLink = function (element) {
-    var meetingConfig = testTool.getMeetingConfig();
-    if (!meetingConfig.mn || !meetingConfig.name) {
-      alert("Meeting number or username is empty");
-      return false;
-    }
-    var signature = ZoomMtg.generateSignature({
-      meetingNumber: meetingConfig.mn,
-      apiKey: API_KEY,
-      apiSecret: API_SECRET,
-      role: meetingConfig.role,
-      success: function (res) {
-        console.log(res.result);
-        meetingConfig.signature = res.result;
-        meetingConfig.apiKey = API_KEY;
-        var joinUrl =
-          testTool.getCurrentDomain() +
-          "/meeting.html?" +
-          testTool.serialize(meetingConfig);
-        document.getElementById('copy_link_value').setAttribute('link', joinUrl);
-        copyToClipboard('copy_link_value');
-        
-      },
-    });
-  };
-
 }

@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'd11ed239a6437e89f92b6051fb3556c681825bdc',
+    'reference' => 'c9eddbffc29fc725f840ddb0979e71bd5821d342',
     'name' => 'horanerd/guilherme',
   ),
   'versions' => 
@@ -46,12 +46,12 @@ private static $installed = array (
     ),
     'firebase/php-jwt' => 
     array (
-      'pretty_version' => '1.0.0',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'v5.2.1',
+      'version' => '5.2.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => '58c1e61d0dff797f2989c54415229f4016d57a6d',
+      'reference' => 'f42c9110abe98dd6cfe9053c49bc86acc70b2d23',
     ),
     'guzzlehttp/guzzle' => 
     array (
@@ -73,12 +73,12 @@ private static $installed = array (
     ),
     'guzzlehttp/psr7' => 
     array (
-      'pretty_version' => '1.8.1',
-      'version' => '1.8.1.0',
+      'pretty_version' => '1.8.2',
+      'version' => '1.8.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => '35ea11d335fd638b5882ff1725228b3d35496ab1',
+      'reference' => 'dc960a912984efb74d0a90222870c72c87f10c91',
     ),
     'horanerd/guilherme' => 
     array (
@@ -87,7 +87,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'd11ed239a6437e89f92b6051fb3556c681825bdc',
+      'reference' => 'c9eddbffc29fc725f840ddb0979e71bd5821d342',
     ),
     'psr/http-client' => 
     array (

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<?php  require_once '../vendor/autoload.php'; ?>
 <head>
     <title>Zoom WebSDK</title>
     <meta charset="utf-8" />
@@ -61,10 +61,7 @@
             </div>
             <div id="navbar" class="websdktest">
                 <form class="navbar-form navbar-right" id="meeting_form">
-                    <div class="form-group">
-                        <input type="text" name="display_name" id="display_name" value="<?= NAME ?>" maxLength="100"
-                            placeholder="Name" class="form-control" required>
-                    </div>
+                    
                     <div class="form-group">
                         <input type="text" name="meeting_number" id="meeting_number" value="" maxLength="200"
                             style="width:150px" placeholder="Meeting Number" class="form-control" required>

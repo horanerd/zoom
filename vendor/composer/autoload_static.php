@@ -30,6 +30,10 @@ class ComposerStaticInit9a418115d16ff5b269f0623f17c5e129
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
         ),
+        'F' => 
+        array (
+            'Firebase\\JWT\\' => 13,
+        ),
         'C' => 
         array (
             'CoffeeCode\\Router\\' => 18,
@@ -61,6 +65,10 @@ class ComposerStaticInit9a418115d16ff5b269f0623f17c5e129
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
+        'Firebase\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
+        ),
         'CoffeeCode\\Router\\' => 
         array (
             0 => __DIR__ . '/..' . '/coffeecode/router/src',
@@ -69,7 +77,6 @@ class ComposerStaticInit9a418115d16ff5b269f0623f17c5e129
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'JWT' => __DIR__ . '/..' . '/firebase/php-jwt/Firebase/PHP-JWT/Authentication/JWT.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

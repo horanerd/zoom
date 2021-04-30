@@ -26,7 +26,7 @@
     "guzzlehttp/promises": "^1.4",
     "guzzlehttp/psr7": "^1.7 || ^2.0",
     "guzzlehttp/guzzle": "7.0",
-    "firebase/php-jwt": "^1.0",
+    "firebase/php-jwt": "^4.2",
     "ext-pdo": "^7.1",
     "psr/http-client": "^1.0",
     "coffeecode/router": "^1.0"
