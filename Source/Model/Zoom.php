@@ -45,17 +45,7 @@ class Zoom {
         //	return signature, url safe base64 encoded
 	    return rtrim(strtr(base64_encode($_sig), '+/', '-_'), '=');
     }
-    /*
-    function Signature($api, $secret){
-        $key = $api;
-        $payload = array(
-        "iss" => $secret,
-        'exp' => time() + 3600,
-    );
-    return  JWT::encode($payload, $key);
-        
-    }
-    */
+  
 
     public function meeting($name, $meeting, $pwd, $role, $lang = "pt-PT"){
         
@@ -64,7 +54,7 @@ class Zoom {
         return "name=".$name ."&mn=" . $meeting . "&email=&pwd=" . $pwd . "&role=" . $role . "&lang=" . $lang . "&signature=" . $signature . "&china=0&apiKey=". Api_Key;
     }
     
-    public function create($name, $data){
+    public function create($name, $data, $time, $pass){
         $client = new Client([
             // Base URI is used with relative requests
             'base_uri' => 'https://api.zoom.us',
@@ -75,11 +65,11 @@ class Zoom {
                 "Authorization" => "Bearer " . $this->getZoomAccessToken()
             ],
             'json' => [
-                "topic" => $name,
+                "topic" => $name, # nome da reunião
                 "type" => 2,
-                "start_time" => $data,
-                "duration" => "30", // 30 mins
-                "password" => "123456"
+                "start_time" => $data, # hora de inicio da reunião
+                "duration" => $time,  # tempo da reunião em minutos
+                "password" => $pass # senha da reunião
             ],
         ]);
      
@@ -87,6 +77,8 @@ class Zoom {
         echo "Join URL: ". $data->join_url;
         echo "<br>";
         echo "Meeting Password: ". $data->password;
+
+        return $data = json_decode($response->getBody());
     
     }
 

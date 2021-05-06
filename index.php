@@ -1,9 +1,6 @@
 <?php
                 require_once 'vendor/autoload.php';
-                            
-
-                            use GuzzleHttp\Client;
-                            
+                           
                             use Source\Model\Zoom;
 
                 
@@ -14,7 +11,7 @@
 
                 //echo $novo->Signature(ZOOM_API_KEY, ZOOM_SECRET_KEY);
 
-               $meet = $novo->meeting("Guilherme", "82429182978", "TDhxbjdPckY4TkVRQkZGRUpSUjcvQT09", "0");
+               $meet = $novo->meeting("Guilherme", "88143588970", "OHpWMjFvRGtxakFpcXRMVzN6T3NzZz09", "0");
                 
                 ?>
                 <html>

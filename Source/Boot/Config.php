@@ -1,7 +1,7 @@
 <?php
 
-define('ZOOM_API_KEY', 'api key');
-define('ZOOM_SECRET_KEY', 'api secret');
+define('ZOOM_API_KEY', 's7SgEXxlQc2M7BVCS4pfxg');
+define('ZOOM_SECRET_KEY', 'knp9bbymZPInZqdYiYPSy4sDerkMQFPYwF01');
 
 define('NAME', 'Guilherme de sousa');
 define('meeting_lang', 'pt-PT');
